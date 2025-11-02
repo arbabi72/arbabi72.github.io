@@ -6,125 +6,264 @@
   <title>AmirReza HajiArbabi | Data Scientist & AI Developer</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
-
+    * { box-sizing: border-box; font-family: "Poppins", sans-serif; }
+    html,body { height: 100%; margin: 0; }
     body {
-      margin: 0;
-      height: 100vh;
       background: url("background.png") no-repeat center center/cover;
       display: flex;
       justify-content: center;
       align-items: center;
       background-color: #f5f5f5;
+      transition: direction 0.2s ease;
     }
 
+    /* wrapper */
     .container {
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.94);
       border-radius: 16px;
-      padding: 40px;
-      width: 380px;
-      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
-      text-align: center;
-      backdrop-filter: blur(8px);
+      padding: 34px;
+      width: 420px;
+      max-width: 94%;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+      text-align: left;
+      backdrop-filter: blur(6px);
+      position: relative;
     }
+
+    /* top bar with name + lang toggle */
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .brand {
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+    .brand .title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #111;
+      margin: 0;
+      line-height: 1;
+    }
+    .brand .subtitle {
+      font-size: 12px;
+      color: #444;
+      margin-top: 4px;
+    }
+
+    .lang-toggle {
+      background: transparent;
+      color: #111;
+      border: 1px solid #bbb;
+      padding: 6px 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 13px;
+      min-width: 56px;
+      transition: all .18s ease;
+    }
+    .lang-toggle:hover { background:#111; color:#fff; border-color:#111; }
 
     h1 {
-      font-size: 22px;
+      font-size: 20px;
       color: #111;
-      margin-bottom: 5px;
+      margin: 8px 0 6px;
       font-weight: 700;
     }
-
     h2 {
-      font-size: 14px;
-      color: #333;
+      font-size: 13px;
+      color:#333;
       font-weight: 400;
-      margin-bottom: 30px;
+      margin: 0 0 18px 0;
     }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    input, textarea {
+    form { display:flex; flex-direction:column; gap:12px; }
+    input[type="text"], input[type="email"], input[type="url"], textarea {
       padding: 10px 12px;
-      border: 1px solid #ccc;
+      border: 1px solid #d0d0d0;
       border-radius: 8px;
       font-size: 14px;
-      transition: 0.3s;
-      width: 100%;
+      transition: border .15s ease;
+      width:100%;
+      color:#111;
+      background: #fff;
     }
+    input:focus, textarea:focus { outline:none; border-color:#000; }
+    textarea { height:100px; resize:none; }
 
-    input:focus, textarea:focus {
-      border-color: #000;
-      outline: none;
-    }
+    .file-row { display:flex; align-items:center; gap:10px; }
+    .file-row input[type="file"] { flex:1; }
 
-    textarea {
-      resize: none;
-      height: 100px;
+    .controls { display:flex; gap:10px; align-items:center; margin-top:8px; }
+    button.submit {
+      background:#000; color:#fff; border:none; padding:10px 14px; border-radius:8px; cursor:pointer; font-size:14px;
     }
-
-    button {
-      background: #000;
-      color: #fff;
-      padding: 10px;
-      font-size: 14px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background: #333;
-    }
+    button.submit:hover { background:#2b2b2b; }
 
     .success-message {
-      margin-top: 15px;
-      color: #007f00;
+      margin-top:12px;
+      color: #007a00;
       font-size: 14px;
-      display: none;
+      display:none;
     }
 
-    @media (max-width: 450px) {
-      .container {
-        width: 90%;
-        padding: 25px;
-      }
+    /* RTL rules when dir="rtl" on body */
+    body[dir="rtl"] .container { text-align: right; }
+    body[dir="rtl"] .topbar { flex-direction: row-reverse; }
+    body[dir="rtl"] input[type="text"], body[dir="rtl"] input[type="url"], body[dir="rtl"] textarea { direction: rtl; }
+    body[dir="rtl"] .brand { align-items:flex-end; }
+
+    @media (max-width:480px) {
+      .container { padding:20px; width:94%; }
+      .brand .title { font-size:16px; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Contact Me</h1>
-    <h2>AmirReza HajiArbabi | Data Scientist & AI Developer</h2>
-    <form id="contactForm">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <input type="url" name="linkedin" placeholder="LinkedIn Profile URL" />
-      <textarea name="message" placeholder="Your Message..." required></textarea>
-      <input type="file" name="file" />
-      <button type="submit">Submit</button>
-    </form>
-    <div class="success-message" id="successMessage">
-      ✅ Your message has been sent successfully.
+  <div class="container" id="container">
+    <div class="topbar">
+      <div class="brand">
+        <p class="title" id="brandTitle">AmirReza HajiArbabi</p>
+        <p class="subtitle" id="brandSubtitle">Data Scientist & AI Developer</p>
+      </div>
+
+      <button class="lang-toggle" id="langToggle" aria-label="Toggle Language">FA</button>
     </div>
+
+    <h1 id="heading">Contact Me</h1>
+    <h2 id="subheading">AmirReza HajiArbabi | Data Scientist & AI Developer</h2>
+
+    <form id="contactForm" novalidate>
+      <input type="text" name="name" id="name" placeholder="Your Name" required />
+      <input type="email" name="email" id="email" placeholder="Your Email" required />
+      <input type="url" name="linkedin" id="linkedin" placeholder="LinkedIn Profile URL" />
+      <textarea name="message" id="message" placeholder="Your Message..." required></textarea>
+
+      <div class="file-row">
+        <input type="file" name="file" id="file" />
+      </div>
+
+      <div class="controls">
+        <button type="submit" class="submit" id="submitBtn">Submit</button>
+      </div>
+    </form>
+
+    <div class="success-message" id="successMessage">✅ Your message has been sent successfully.</div>
   </div>
 
   <script>
-    const form = document.getElementById("contactForm");
-    const successMessage = document.getElementById("successMessage");
+    // Translation strings
+    const translations = {
+      en: {
+        langButton: 'FA',
+        heading: 'Contact Me',
+        subheading: 'AmirReza HajiArbabi | Data Scientist & AI Developer',
+        placeholders: {
+          name: 'Your Name',
+          email: 'Your Email',
+          linkedin: 'LinkedIn Profile URL',
+          message: 'Your Message...'
+        },
+        submit: 'Submit',
+        success: '✅ Your message has been sent successfully.',
+        brandTitle: 'AmirReza HajiArbabi',
+        brandSubtitle: 'Data Scientist & AI Developer'
+      },
+      fa: {
+        langButton: 'EN',
+        heading: 'تماس با من',
+        subheading: 'امیررضا حاجی‌اربابی | دانشمند داده و توسعه‌دهنده هوش مصنوعی',
+        placeholders: {
+          name: 'نام شما',
+          email: 'ایمیل شما',
+          linkedin: 'آدرس لینکدین (URL)',
+          message: 'پیام شما...'
+        },
+        submit: 'ارسال',
+        success: '✅ پیام شما با موفقیت ارسال شد.',
+        brandTitle: 'امیررضا حاجی‌اربابی',
+        brandSubtitle: 'دانشمند داده و توسعه‌دهنده هوش مصنوعی'
+      }
+    };
 
-    form.addEventListener("submit", (e) => {
+    // Elements
+    const langToggle = document.getElementById('langToggle');
+    const heading = document.getElementById('heading');
+    const subheading = document.getElementById('subheading');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const linkedinInput = document.getElementById('linkedin');
+    const messageInput = document.getElementById('message');
+    const submitBtn = document.getElementById('submitBtn');
+    const successMessage = document.getElementById('successMessage');
+    const brandTitle = document.getElementById('brandTitle');
+    const brandSubtitle = document.getElementById('brandSubtitle');
+
+    // Set language (load from localStorage if exists)
+    function getSavedLang() {
+      const saved = localStorage.getItem('site_lang');
+      return saved === 'fa' ? 'fa' : 'en';
+    }
+
+    function applyLanguage(lang) {
+      const t = translations[lang];
+
+      // Update text content and placeholders
+      langToggle.textContent = t.langButton;
+      heading.textContent = t.heading;
+      subheading.textContent = t.subheading;
+      nameInput.placeholder = t.placeholders.name;
+      emailInput.placeholder = t.placeholders.email;
+      linkedinInput.placeholder = t.placeholders.linkedin;
+      messageInput.placeholder = t.placeholders.message;
+      submitBtn.textContent = t.submit;
+      successMessage.textContent = t.success;
+      brandTitle.textContent = t.brandTitle;
+      brandSubtitle.textContent = t.brandSubtitle;
+
+      // Update HTML lang and direction
+      document.documentElement.lang = (lang === 'fa') ? 'fa' : 'en';
+      document.body.setAttribute('dir', (lang === 'fa') ? 'rtl' : 'ltr');
+
+      // Save preference
+      localStorage.setItem('site_lang', lang);
+    }
+
+    // Initialize
+    let currentLang = getSavedLang();
+    applyLanguage(currentLang);
+
+    // Toggle
+    langToggle.addEventListener('click', () => {
+      currentLang = (currentLang === 'en') ? 'fa' : 'en';
+      applyLanguage(currentLang);
+    });
+
+    // Form submit (for GitHub Pages demo: show success without sending)
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
-      successMessage.style.display = "block";
+
+      // Basic validation (HTML required attrs handle most)
+      if (!nameInput.value.trim() || !emailInput.value.trim() || !messageInput.value.trim()) {
+        // show a brief alert in the current language
+        alert(currentLang === 'fa' ? 'لطفاً فیلدهای مورد نیاز را تکمیل کنید.' : 'Please complete required fields.');
+        return;
+      }
+
+      // Show success message and reset form (no server)
+      successMessage.style.display = 'block';
       form.reset();
+
+      // Keep success message visible for a bit, then hide (optional)
+      setTimeout(() => {
+        successMessage.style.display = 'none';
+      }, 6000);
     });
   </script>
 </body>
