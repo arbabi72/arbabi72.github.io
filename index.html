@@ -1,270 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AmirReza HajiArbabi | Data Scientist & AI Developer</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Amir reza Haji arbabi — AI & Demand Forecasting</title>
+  <meta name="description" content="Amir reza Haji arbabi — Data Analyst & AI. Demand forecasting, production & sales analytics." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    * { box-sizing: border-box; font-family: "Poppins", sans-serif; }
-    html,body { height: 100%; margin: 0; }
-    body {
-      background: url("background.png") no-repeat center center/cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #f5f5f5;
-      transition: direction 0.2s ease;
+    :root{
+      --bg-overlay: rgba(255,255,255,0.94);
+      --accent:#0d0d0d;
+      --muted:#555;
+      --link:#0b63a8;
+      --card-radius:14px;
+      --glass-blur:6px;
+      --container-width:980px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:'Poppins',system-ui,Arial,Helvetica,sans-serif;background:#f5f5f5}
+    body{
+      background: url('background.png') center/cover no-repeat fixed;
+      display:flex;justify-content:center;align-items:flex-start;padding:48px 20px;
     }
 
-    /* wrapper */
-    .container {
-      background: rgba(255, 255, 255, 0.94);
-      border-radius: 16px;
-      padding: 34px;
-      width: 420px;
-      max-width: 94%;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-      text-align: left;
-      backdrop-filter: blur(6px);
-      position: relative;
+    .page{
+      width:100%;max-width:var(--container-width);
+      background:var(--bg-overlay);border-radius:18px;padding:28px;box-shadow:0 20px 60px rgba(6,12,20,0.12);
+      backdrop-filter: blur(var(--glass-blur));
+      position:relative;overflow:hidden;
     }
 
-    /* top bar with name + lang toggle */
-    .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 10px;
-    }
-    .brand {
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-    }
-    .brand .title {
-      font-size: 18px;
-      font-weight: 700;
-      color: #111;
-      margin: 0;
-      line-height: 1;
-    }
-    .brand .subtitle {
-      font-size: 12px;
-      color: #444;
-      margin-top: 4px;
-    }
+    /* header */
+    .header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;flex-direction:column}
+    .brand .name{font-weight:700;font-size:20px;color:var(--accent);margin:0}
+    .brand .role{font-size:13px;color:var(--muted);margin-top:6px}
+    .top-actions{display:flex;gap:10px;align-items:center}
+    .lang-btn{background:transparent;border:1px solid #cfcfcf;padding:6px 10px;border-radius:10px;cursor:pointer;font-weight:600}
+    .menu{display:flex;gap:12px}
+    .menu a{color:var(--muted);text-decoration:none;font-size:14px}
 
-    .lang-toggle {
-      background: transparent;
-      color: #111;
-      border: 1px solid #bbb;
-      padding: 6px 10px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 13px;
-      min-width: 56px;
-      transition: all .18s ease;
+    /* hero */
+    .hero{display:flex;gap:28px;margin-top:20px;align-items:flex-start}
+    .left{
+      flex:1;min-width:260px;
     }
-    .lang-toggle:hover { background:#111; color:#fff; border-color:#111; }
+    .hero-title{font-size:28px;margin:0 0 10px 0;color:var(--accent)}
+    .hero-sub{color:var(--muted);margin:0 0 18px 0;line-height:1.5}
+    .cta-row{display:flex;gap:12px}
+    .btn{background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;border:none;cursor:pointer}
+    .btn.ghost{background:transparent;color:var(--accent);border:1px solid #ddd}
 
-    h1 {
-      font-size: 20px;
-      color: #111;
-      margin: 8px 0 6px;
-      font-weight: 700;
-    }
-    h2 {
-      font-size: 13px;
-      color:#333;
-      font-weight: 400;
-      margin: 0 0 18px 0;
-    }
+    /* projects */
+    .projects{margin-top:30px}
+    .section-title{font-size:16px;margin:0 0 12px 0;font-weight:600;color:var(--accent)}
+    .project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+    .card{background:#fff;border-radius:12px;padding:14px;border:1px solid #efefef;box-shadow:0 6px 20px rgba(14,20,30,0.04);transition:transform .24s ease,box-shadow .24s ease}
+    .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(8,12,20,0.07)}
+    .card .p-title{font-weight:600;margin:0 0 6px 0}
+    .p-desc{color:var(--muted);font-size:13px;margin:0 0 10px}
+    .p-links{display:flex;gap:8px}
+    .link-pill{font-size:13px;padding:6px 8px;border-radius:8px;border:1px solid #e7e7e7;text-decoration:none;color:var(--link)}
 
-    form { display:flex; flex-direction:column; gap:12px; }
-    input[type="text"], input[type="email"], input[type="url"], textarea {
-      padding: 10px 12px;
-      border: 1px solid #d0d0d0;
-      border-radius: 8px;
-      font-size: 14px;
-      transition: border .15s ease;
-      width:100%;
-      color:#111;
-      background: #fff;
-    }
-    input:focus, textarea:focus { outline:none; border-color:#000; }
-    textarea { height:100px; resize:none; }
+    /* videos + articles */
+    .two-col{display:grid;grid-template-columns:1fr 320px;gap:18px}
 
-    .file-row { display:flex; align-items:center; gap:10px; }
-    .file-row input[type="file"] { flex:1; }
+    /* floating contact widget */
+    .contact-widget-toggle{position:fixed;right:28px;bottom:28px;z-index:9999}
+    .floating-btn{width:56px;height:56px;border-radius:50%;background:var(--accent);color:#fff;border:none;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(8,12,20,0.18);cursor:pointer}
 
-    .controls { display:flex; gap:10px; align-items:center; margin-top:8px; }
-    button.submit {
-      background:#000; color:#fff; border:none; padding:10px 14px; border-radius:8px; cursor:pointer; font-size:14px;
-    }
-    button.submit:hover { background:#2b2b2b; }
+    .floating-panel{position:fixed;right:28px;bottom:100px;width:360px;max-width:calc(100% - 48px);background:rgba(255,255,255,0.98);border-radius:14px;box-shadow:0 20px 60px rgba(6,12,20,0.12);padding:18px;transform:translateY(18px);transition:transform .28s cubic-bezier(.2,.9,.2,1),opacity .2s;opacity:0}
+    .floating-panel.open{transform:translateY(0);opacity:1}
+    .floating-panel .panel-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+    .floating-panel h3{margin:0;font-size:16px}
+    .close-small{background:transparent;border:1px solid #ddd;padding:6px;border-radius:8px;cursor:pointer}
 
-    .success-message {
-      margin-top:12px;
-      color: #007a00;
-      font-size: 14px;
-      display:none;
-    }
+    .form-field{display:flex;flex-direction:column;gap:6px;margin-bottom:10px}
+    .form-field input,.form-field textarea{padding:10px;border-radius:8px;border:1px solid #e6e6e6}
+    .form-actions{display:flex;align-items:center;gap:10px}
+    .success{color:#0a8f00;font-size:13px;display:none}
 
-    /* RTL rules when dir="rtl" on body */
-    body[dir="rtl"] .container { text-align: right; }
-    body[dir="rtl"] .topbar { flex-direction: row-reverse; }
-    body[dir="rtl"] input[type="text"], body[dir="rtl"] input[type="url"], body[dir="rtl"] textarea { direction: rtl; }
-    body[dir="rtl"] .brand { align-items:flex-end; }
+    footer{margin-top:28px;padding-top:18px;border-top:1px solid #f0f0f0;color:var(--muted);font-size:13px}
 
-    @media (max-width:480px) {
-      .container { padding:20px; width:94%; }
-      .brand .title { font-size:16px; }
-    }
+    /* RTL */
+    body[dir='rtl']{direction:rtl}
+    body[dir='rtl'] .header{flex-direction:row-reverse}
+    body[dir='rtl'] .hero{flex-direction:row-reverse}
+    body[dir='rtl'] .floating-panel{right:auto;left:28px}
+    @media(max-width:880px){.two-col{grid-template-columns:1fr} .hero{flex-direction:column} .top-actions{gap:8px}}
   </style>
 </head>
 <body>
-  <div class="container" id="container">
-    <div class="topbar">
+  <div class="page" id="page">
+
+    <header class="header">
       <div class="brand">
-        <p class="title" id="brandTitle">AmirReza HajiArbabi</p>
-        <p class="subtitle" id="brandSubtitle">Data Scientist & AI Developer</p>
+        <p class="name" id="brandName">Amir reza Haji arbabi</p>
+        <p class="role" id="brandRole">Data Analyst — AI & Demand Forecasting</p>
       </div>
 
-      <button class="lang-toggle" id="langToggle" aria-label="Toggle Language">FA</button>
+      <div class="top-actions">
+        <nav class="menu">
+          <a href="#projects" data-scroll>Projects</a>
+          <a href="#videos" data-scroll>Videos</a>
+          <a href="#contact" data-scroll>Contact</a>
+        </nav>
+        <button class="lang-btn" id="langBtn">FA</button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="left">
+        <h1 class="hero-title" id="heroTitle">I analyze production & sales data using AI to find patterns, forecasts & improvement opportunities.</h1>
+        <p class="hero-sub" id="heroSub">I am a data analyst who leverages machine learning and forecasting techniques to turn production and sales data into actionable insights for business growth.</p>
+        <div class="cta-row">
+          <button class="btn" id="viewProjects">View Projects</button>
+          <a class="btn ghost" href="https://www.linkedin.com/in/amir-arbabi-a4961b106/overlay/about-this-profile/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3Bm5aKOe02S1ijFHuFbcushw%3D%3D" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+      <div class="right">
+        <!-- place for a profile image or quick stats -->
+      </div>
+    </section>
+
+    <main>
+      <section id="projects" class="projects">
+        <p class="section-title">Selected Projects</p>
+        <div class="project-grid" id="projectsGrid">
+          <!-- cards injected by JS -->
+        </div>
+      </section>
+
+      <section id="videos" style="margin-top:24px">
+        <p class="section-title">Videos & Talks</p>
+        <div style="color:var(--muted);font-size:14px;margin-top:8px">Embedded YouTube/Vimeo videos will appear here.</div>
+      </section>
+
+      <section id="contact" style="margin-top:28px">
+        <p class="section-title">Contact & Downloads</p>
+        <div style="display:flex;gap:12px;align-items:center;margin-top:8px">
+          <div style="flex:1;color:var(--muted)">Email: <a href="mailto:arbabi72@gmail.com">arbabi72@gmail.com</a></div>
+          <div style="color:var(--muted)">LinkedIn: <a href="https://www.linkedin.com/in/amir-arbabi-a4961b106/">Profile</a></div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      © 2025 Amir reza Haji arbabi — Built for GitHub Pages • AI / Data Portfolio
+    </footer>
+  </div>
+
+  <!-- Floating contact widget -->
+  <div class="contact-widget-toggle">
+    <button class="floating-btn" id="toggleBtn" title="Contact">
+      ✉
+    </button>
+
+    <div class="floating-panel" id="panel">
+      <div class="panel-header">
+        <h3 id="panelTitle">Contact Me</h3>
+        <button class="close-small" id="closePanel">✕</button>
+      </div>
+
+      <form id="contactForm" novalidate>
+        <div class="form-field"><label class="sr">Name</label><input type="text" id="f_name" placeholder="Your Name" required></div>
+        <div class="form-field"><label class="sr">Email</label><input type="email" id="f_email" placeholder="Your Email" required></div>
+        <div class="form-field"><label class="sr">LinkedIn</label><input type="url" id="f_link" placeholder="LinkedIn Profile URL"></div>
+        <div class="form-field"><label class="sr">Message</label><textarea id="f_message" placeholder="Your Message..." required></textarea></div>
+        <div class="form-field"><input type="file" id="f_file"></div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn">Submit</button>
+          <div class="success" id="successText">✅ Your message has been sent.</div>
+        </div>
+      </form>
+
     </div>
-
-    <h1 id="heading">Contact Me</h1>
-    <h2 id="subheading">AmirReza HajiArbabi | Data Scientist & AI Developer</h2>
-
-    <form id="contactForm" novalidate>
-      <input type="text" name="name" id="name" placeholder="Your Name" required />
-      <input type="email" name="email" id="email" placeholder="Your Email" required />
-      <input type="url" name="linkedin" id="linkedin" placeholder="LinkedIn Profile URL" />
-      <textarea name="message" id="message" placeholder="Your Message..." required></textarea>
-
-      <div class="file-row">
-        <input type="file" name="file" id="file" />
-      </div>
-
-      <div class="controls">
-        <button type="submit" class="submit" id="submitBtn">Submit</button>
-      </div>
-    </form>
-
-    <div class="success-message" id="successMessage">✅ Your message has been sent successfully.</div>
   </div>
 
   <script>
-    // Translation strings
-    const translations = {
-      en: {
-        langButton: 'FA',
-        heading: 'Contact Me',
-        subheading: 'AmirReza HajiArbabi | Data Scientist & AI Developer',
-        placeholders: {
-          name: 'Your Name',
-          email: 'Your Email',
-          linkedin: 'LinkedIn Profile URL',
-          message: 'Your Message...'
-        },
-        submit: 'Submit',
-        success: '✅ Your message has been sent successfully.',
-        brandTitle: 'AmirReza HajiArbabi',
-        brandSubtitle: 'Data Scientist & AI Developer'
+    // --- projects data (editable) ---
+    const projects = [
+      {
+        id:1,
+        title: 'تحلیل داده های فروش و تولید',
+        desc: 'تحلیل داده های تولیدی، میزان فروش و بررسی الگوی فروش و تولید در کارخانه ی زرین رویا',
+        github: '',
+        powerbi: '',
+        pdf: ''
       },
-      fa: {
-        langButton: 'EN',
-        heading: 'تماس با من',
-        subheading: 'امیررضا حاجی‌اربابی | دانشمند داده و توسعه‌دهنده هوش مصنوعی',
-        placeholders: {
-          name: 'نام شما',
-          email: 'ایمیل شما',
-          linkedin: 'آدرس لینکدین (URL)',
-          message: 'پیام شما...'
-        },
-        submit: 'ارسال',
-        success: '✅ پیام شما با موفقیت ارسال شد.',
-        brandTitle: 'امیررضا حاجی‌اربابی',
-        brandSubtitle: 'دانشمند داده و توسعه‌دهنده هوش مصنوعی'
+      {
+        id:2,
+        title: 'تحلیل داده های فروش و تولید (Rossman)',
+        desc: 'تحلیل میزان فروش به ازای ایالت ها و فروشگاه ها و بررسی الگوها در شرکت رزمن',
+        github: '',
+        powerbi: '',
+        pdf: ''
+      }
+    ];
+
+    // render projects
+    const projectsGrid = document.getElementById('projectsGrid');
+    function renderProjects(){
+      projectsGrid.innerHTML = projects.map(p=>`
+        <div class="card">
+          <p class="p-title">${p.title}</p>
+          <p class="p-desc">${p.desc}</p>
+          <div class="p-links">
+            ${p.github? `<a class="link-pill" href="${p.github}" target="_blank">Code</a>`: ''}
+            ${p.powerbi? `<a class="link-pill" href="${p.powerbi}" target="_blank">Dashboard</a>`: ''}
+            ${p.pdf? `<a class="link-pill" href="${p.pdf}" target="_blank">Paper</a>`: ''}
+            ${(!p.github && !p.powerbi && !p.pdf) ? `<span style="color:var(--muted);font-size:13px">Links: (will be added)</span>` : ''}
+          </div>
+        </div>
+      `).join('');
+    }
+    renderProjects();
+
+    // smooth scroll for menu
+    document.querySelectorAll('[data-scroll]').forEach(a=>{
+      a.addEventListener('click',e=>{e.preventDefault();const href=a.getAttribute('href');document.querySelector(href).scrollIntoView({behavior:'smooth',block:'start'});});
+    });
+
+    // floating panel toggle
+    const toggleBtn = document.getElementById('toggleBtn');
+    const panel = document.getElementById('panel');
+    const closePanel = document.getElementById('closePanel');
+    const page = document.getElementById('page');
+    toggleBtn.addEventListener('click', ()=>{panel.classList.toggle('open');if(panel.classList.contains('open')){document.body.style.overflow='hidden'}else{document.body.style.overflow=''} });
+    closePanel.addEventListener('click', ()=>{panel.classList.remove('open');document.body.style.overflow=''});
+
+    // contact form (client-side only for now)
+    const contactForm = document.getElementById('contactForm');
+    const successText = document.getElementById('successText');
+    contactForm.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const name = document.getElementById('f_name').value.trim();
+      const email = document.getElementById('f_email').value.trim();
+      const message = document.getElementById('f_message').value.trim();
+      if(!name||!email||!message){alert('Please complete required fields.');return}
+      successText.style.display='block';
+      setTimeout(()=>{successText.style.display='none';panel.classList.remove('open');document.getElementById('contactForm').reset();document.body.style.overflow='';},2500);
+    });
+
+    // language toggle
+    const langBtn = document.getElementById('langBtn');
+    const langTranslations = {
+      en:{
+        brandName: 'Amir reza Haji arbabi',
+        brandRole: 'Data Analyst — AI & Demand Forecasting',
+        heroTitle: 'I analyze production & sales data using AI to find patterns, forecasts & improvement opportunities.',
+        heroSub: 'I am a data analyst who leverages machine learning and forecasting techniques to turn production and sales data into actionable insights for business growth.',
+        panelTitle: 'Contact Me',
+        toggleText: 'FA'
+      },
+      fa:{
+        brandName: 'امیر رضا حاجی اربابی',
+        brandRole: 'دیتا آنالیست — پیش‌بینی تقاضا و هوش مصنوعی',
+        heroTitle: 'من داده‌های تولید و فروش را با هوش مصنوعی تحلیل می‌کنم تا الگوها، پیش‌بینی‌ها و فرصت‌های بهبود را شناسایی کنم.',
+        heroSub: 'تحلیلگر داده با تمرکز بر مدل‌های پیش‌بینی و داشبوردهای عملیاتی برای افزایش کارایی کسب‌وکار.',
+        panelTitle: 'تماس با من',
+        toggleText: 'EN'
       }
     };
 
-    // Elements
-    const langToggle = document.getElementById('langToggle');
-    const heading = document.getElementById('heading');
-    const subheading = document.getElementById('subheading');
-    const nameInput = document.getElementById('name');
-    const emailInput = document.getElementById('email');
-    const linkedinInput = document.getElementById('linkedin');
-    const messageInput = document.getElementById('message');
-    const submitBtn = document.getElementById('submitBtn');
-    const successMessage = document.getElementById('successMessage');
-    const brandTitle = document.getElementById('brandTitle');
-    const brandSubtitle = document.getElementById('brandSubtitle');
-
-    // Set language (load from localStorage if exists)
-    function getSavedLang() {
-      const saved = localStorage.getItem('site_lang');
-      return saved === 'fa' ? 'fa' : 'en';
+    function getSaved(){return localStorage.getItem('site_lang')||'en'}
+    function applyLang(l){
+      const t = langTranslations[l];
+      document.getElementById('brandName').textContent = t.brandName;
+      document.getElementById('brandRole').textContent = t.brandRole;
+      document.getElementById('heroTitle').textContent = t.heroTitle;
+      document.getElementById('heroSub').textContent = t.heroSub;
+      document.getElementById('panelTitle').textContent = t.panelTitle;
+      langBtn.textContent = t.toggleText;
+      if(l==='fa'){document.documentElement.lang='fa';document.body.setAttribute('dir','rtl')}else{document.documentElement.lang='en';document.body.setAttribute('dir','ltr')}
+      localStorage.setItem('site_lang',l);
     }
+    let cur = getSaved();applyLang(cur);
+    langBtn.addEventListener('click',()=>{cur=cur==='en'?'fa':'en';applyLang(cur)});
 
-    function applyLanguage(lang) {
-      const t = translations[lang];
+    // view projects scroll
+    document.getElementById('viewProjects').addEventListener('click',()=>{document.getElementById('projects').scrollIntoView({behavior:'smooth'})});
 
-      // Update text content and placeholders
-      langToggle.textContent = t.langButton;
-      heading.textContent = t.heading;
-      subheading.textContent = t.subheading;
-      nameInput.placeholder = t.placeholders.name;
-      emailInput.placeholder = t.placeholders.email;
-      linkedinInput.placeholder = t.placeholders.linkedin;
-      messageInput.placeholder = t.placeholders.message;
-      submitBtn.textContent = t.submit;
-      successMessage.textContent = t.success;
-      brandTitle.textContent = t.brandTitle;
-      brandSubtitle.textContent = t.brandSubtitle;
-
-      // Update HTML lang and direction
-      document.documentElement.lang = (lang === 'fa') ? 'fa' : 'en';
-      document.body.setAttribute('dir', (lang === 'fa') ? 'rtl' : 'ltr');
-
-      // Save preference
-      localStorage.setItem('site_lang', lang);
-    }
-
-    // Initialize
-    let currentLang = getSavedLang();
-    applyLanguage(currentLang);
-
-    // Toggle
-    langToggle.addEventListener('click', () => {
-      currentLang = (currentLang === 'en') ? 'fa' : 'en';
-      applyLanguage(currentLang);
-    });
-
-    // Form submit (for GitHub Pages demo: show success without sending)
-    const form = document.getElementById('contactForm');
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      // Basic validation (HTML required attrs handle most)
-      if (!nameInput.value.trim() || !emailInput.value.trim() || !messageInput.value.trim()) {
-        // show a brief alert in the current language
-        alert(currentLang === 'fa' ? 'لطفاً فیلدهای مورد نیاز را تکمیل کنید.' : 'Please complete required fields.');
-        return;
-      }
-
-      // Show success message and reset form (no server)
-      successMessage.style.display = 'block';
-      form.reset();
-
-      // Keep success message visible for a bit, then hide (optional)
-      setTimeout(() => {
-        successMessage.style.display = 'none';
-      }, 6000);
-    });
   </script>
 </body>
 </html>
