@@ -1,41 +1,116 @@
-export default function HeroSection() {
-  return (
-    <section className="min-h-screen flex flex-col bg-white text-gray-900">
-      {/* Navigation Bar */}
-      <header className="w-full flex justify-between items-center px-12 py-6 text-lg font-medium shadow-sm">
-        <div className="text-2xl font-bold tracking-tight">ar</div>
-        <nav className="flex gap-10">
-          <a href="#about" className="hover:text-gray-600 transition">About</a>
-          <a href="#proficiencies" className="hover:text-gray-600 transition">Proficiencies</a>
-          <a href="#projects" className="hover:text-gray-600 transition">Projects</a>
-          <a href="#platforms" className="hover:text-gray-600 transition">Other Platforms</a>
-          <a href="#contact" className="hover:text-gray-600 transition">Contact</a>
-        </nav>
-      </header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amir Reza Hajiarbabi</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: white;
+      color: #222;
+      text-align: center;
+    }
 
-      {/* Hero Section */}
-      <div className="flex flex-col items-center justify-center flex-1 text-center mt-12">
-        <div className="w-60 h-60 rounded-full overflow-hidden bg-gray-100 shadow-lg mb-8">
-          <img
-            src="/Amir 1.jpg"
-            alt="Amir Reza Hajiarbabi"
-            className="object-cover w-full h-full"
-          />
-        </div>
+    /* Navbar */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 80px;
+      font-weight: 500;
+      font-size: 18px;
+      border-bottom: 1px solid #eee;
+    }
 
-        <p className="text-gray-500 text-base mb-1">Hello, I'm</p>
-        <h1 className="text-5xl font-extrabold mb-2">Amir Reza Hajiarbabi</h1>
-        <h2 className="text-2xl text-gray-600 mb-6">Data Scientist and Data Analyst</h2>
+    nav a {
+      margin: 0 15px;
+      color: #222;
+      text-decoration: none;
+    }
 
-        <a
-          href="https://www.youtube.com/@Upacademy"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-400 text-white font-semibold rounded-full shadow hover:opacity-90 transition"
-        >
-          YouTube: Upacademy
-        </a>
-      </div>
-    </section>
-  );
-}
+    nav a:hover {
+      color: #777;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 85vh;
+    }
+
+    .profile-pic {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+    }
+
+    .profile-pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    h1 {
+      font-size: 42px;
+      font-weight: 700;
+      margin: 10px 0 5px;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 400;
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    .youtube-link {
+      display: inline-block;
+      padding: 12px 25px;
+      border-radius: 25px;
+      background: linear-gradient(90deg, #8b5cf6, #ec4899);
+      color: white;
+      font-weight: 500;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .youtube-link:hover {
+      opacity: 0.85;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">ar</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#proficiencies">Proficiencies</a>
+      <a href="#projects">Projects</a>
+      <a href="#platforms">Other Platforms</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="profile-pic">
+      <img src="Amir 1.jpg" alt="Amir Reza Hajiarbabi">
+    </div>
+    <p style="color: #777;">Hello, I'm</p>
+    <h1>Amir Reza Hajiarbabi</h1>
+    <h2>Data Scientist and Data Analyst</h2>
+    <a class="youtube-link" href="https://www.youtube.com/@Upacademy" target="_blank">
+      YouTube: Upacademy
+    </a>
+  </section>
+
+</body>
+</html>
