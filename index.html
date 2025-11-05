@@ -5,6 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Amir Reza Hajiarbabi</title>
   <style>
+   
+    .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* یا flex-start اگر می‌خوای چپ چین بشه */
+  text-decoration: none;
+}
+
+.logo-img {
+  height: 40px; /* اندازه دلخواه */
+  width: auto;
+  object-fit: contain;
+  vertical-align: middle;
+}
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
@@ -167,7 +181,9 @@
 <body>
 
   <header>
-    <div class="logo">ar</div>
+    <a href="#" class="logo">
+  <img src="Logo.png" alt="Company Logo" class="logo-img">
+</a>
     <nav>
       <a href="About.html" target="_blank">About</a>
       <a href="proficiencies.html" target="_blank">Proficiencies</a>
