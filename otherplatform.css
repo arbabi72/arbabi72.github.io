@@ -1,0 +1,66 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+#other-platforms {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+#other-platforms h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #0a3d62;
+}
+
+.platforms-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.platform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 120px;
+  text-decoration: none;
+  color: #1e272e;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.platform img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 12px;
+}
+
+.platform span {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.platform:hover {
+  transform: translateY(-5px);
+  color: #0a3d62;
+}
+
+@media (max-width: 600px) {
+  .platforms-container {
+    gap: 20px;
+  }
+  .platform {
+    width: 100px;
+  }
+  .platform img {
+    width: 40px;
+    height: 40px;
+  }
+  .platform span {
+    font-size: 14px;
+  }
+}
