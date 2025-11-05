@@ -87,20 +87,80 @@
     }
     
     .linkedin-link {
-  display: inline-block;
-  padding: 12px 25px;
-  border-radius: 25px;
-  background: linear-gradient(90deg, #0077b5, #00a0dc);
-  color: white;
-  font-weight: 500;
-  text-decoration: none;
-  transition: opacity 0.3s ease;
-   margin-top: 20px; /* فاصله اضافه شد */
-}
+      display: inline-block;
+      padding: 12px 25px;
+      border-radius: 25px;
+      background: linear-gradient(90deg, #0077b5, #00a0dc);
+      color: white;
+      font-weight: 500;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+      margin-top: 20px;
+    }
 
-.linkedin-link:hover {
-  opacity: 0.85;
-}
+    .linkedin-link:hover {
+      opacity: 0.85;
+    }
+
+    /* 📱 Responsive Design */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 10px;
+      }
+
+      nav a {
+        margin: 8px;
+        font-size: 16px;
+      }
+
+      .hero {
+        height: auto;
+        padding: 40px 20px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      h2 {
+        font-size: 18px;
+      }
+
+      .profile-pic {
+        width: 160px;
+        height: 160px;
+      }
+
+      .youtube-link,
+      .linkedin-link {
+        width: 80%;
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 26px;
+      }
+
+      h2 {
+        font-size: 16px;
+      }
+
+      .youtube-link,
+      .linkedin-link {
+        padding: 10px 20px;
+        font-size: 15px;
+      }
+    }
 
   </style>
 </head>
@@ -128,8 +188,8 @@
       YouTube: Upacademy
     </a>
     <a class="linkedin-link" href="https://www.linkedin.com/in/amir-arbabi-a4961b106/" target="_blank">
-  LinkedIn: Amir Reza Hajiarbabi
-</a>
+      LinkedIn: Amir Reza Hajiarbabi
+    </a>
   </section>
 
 </body>
